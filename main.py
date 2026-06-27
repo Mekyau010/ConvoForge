@@ -1,5 +1,7 @@
 from fastapi import FastAPI
+
 from bot import BotEngine
+from schemas import MessageRequest
 
 app = FastAPI(
     title="ConvoForge",
@@ -17,10 +19,10 @@ def home():
     }
 
 
-@app.get("/message")
-def message():
+@app.post("/message")
+def message(data: MessageRequest):
     return bot.process_message(
-        platform="Telegram",
-        user_id="12345",
-        message="Hello"
+        platform=data.platform,
+        user_id=data.user_id,
+        message=data.message
     )
