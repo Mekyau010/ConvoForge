@@ -1,0 +1,4 @@
+class WhatsAppAdapter:
+
+    def send_message(self, user, text):
+        return f"WhatsApp -> {user}: {text}"
