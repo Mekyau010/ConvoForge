@@ -3,15 +3,28 @@ ConvoForge Bot Engine
 """
 
 from conversation import ConversationManager
+from whatsapp import WhatsAppAdapter
+from telegram import TelegramAdapter
+from discord import DiscordAdapter
 
 
 class BotEngine:
 
     def __init__(self):
         self.conversation = ConversationManager()
+        self.adapters = {
+            "whatsapp": WhatsAppAdapter(),
+            "telegram": TelegramAdapter(),
+            "discord": DiscordAdapter()
+        }
 
     def process_message(self, platform, user_id, message):
         reply = self.conversation.get_reply(message)
+
+        adapter = self.adapters.get(platform.lower())
+
+        if adapter:
+            adapter.send_message(user_id, reply)
 
         return {
             "platform": platform,
