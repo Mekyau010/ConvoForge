@@ -1,0 +1,14 @@
+"""
+ConvoForge Bot Engine
+"""
+
+
+class BotEngine:
+
+    def process_message(self, platform, user_id, message):
+        return {
+            "platform": platform,
+            "user": user_id,
+            "message": message,
+            "reply": "Hello from ConvoForge!"
+        }
