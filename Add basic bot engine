@@ -2,13 +2,20 @@
 ConvoForge Bot Engine
 """
 
+from conversation import ConversationManager
+
 
 class BotEngine:
 
+    def __init__(self):
+        self.conversation = ConversationManager()
+
     def process_message(self, platform, user_id, message):
+        reply = self.conversation.get_reply(message)
+
         return {
             "platform": platform,
             "user": user_id,
             "message": message,
-            "reply": "Hello from ConvoForge!"
+            "reply": reply
         }
