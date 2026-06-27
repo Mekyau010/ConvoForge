@@ -1,4 +1,13 @@
+"""
+WhatsApp Adapter
+"""
+
+
 class WhatsAppAdapter:
 
-    def send_message(self, user, text):
-        return f"WhatsApp -> {user}: {text}"
+    def send_message(self, user_id, message):
+        return {
+            "platform": "WhatsApp",
+            "user": user_id,
+            "message": message
+        }
