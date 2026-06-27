@@ -1,0 +1,4 @@
+class DiscordAdapter:
+
+    def send_message(self, user, text):
+        return f"Discord -> {user}: {text}"
