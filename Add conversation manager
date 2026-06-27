@@ -1,0 +1,15 @@
+"""
+Conversation Manager
+"""
+
+
+class ConversationManager:
+
+    def __init__(self):
+        self.sessions = {}
+
+    def save(self, user_id, state):
+        self.sessions[user_id] = state
+
+    def get(self, user_id):
+        return self.sessions.get(user_id, "start")
