@@ -1,0 +1,4 @@
+class TelegramAdapter:
+
+    def send_message(self, user, text):
+        return f"Telegram -> {user}: {text}"
