@@ -1,4 +1,13 @@
+"""
+Telegram Adapter
+"""
+
+
 class TelegramAdapter:
 
-    def send_message(self, user, text):
-        return f"Telegram -> {user}: {text}"
+    def send_message(self, user_id, message):
+        return {
+            "platform": "Telegram",
+            "user": user_id,
+            "message": message
+        }
