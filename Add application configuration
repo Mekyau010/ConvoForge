@@ -1,0 +1,16 @@
+"""
+ConvoForge Configuration
+"""
+
+import os
+
+
+class Config:
+    APP_NAME = "ConvoForge"
+    VERSION = "0.1.0"
+
+    WHATSAPP_TOKEN = os.getenv("WHATSAPP_TOKEN", "")
+    TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN", "")
+    DISCORD_TOKEN = os.getenv("DISCORD_TOKEN", "")
+
+    DEBUG = True
